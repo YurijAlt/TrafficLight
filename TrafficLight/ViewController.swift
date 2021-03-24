@@ -32,7 +32,7 @@ class ViewController: UIViewController {
     //MARK: Life Cicles Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         redLight.layer.cornerRadius = redLight.bounds.height / 2
         redLight.alpha = colorTransperancy
         yellowLight.layer.cornerRadius = redLight.bounds.height / 2
@@ -44,29 +44,24 @@ class ViewController: UIViewController {
     }
     
     //MARK: IB Actions
-    @IBAction func startButtonTapped(_ sender: UIButton) {
-        
+    @IBAction func startButtonTapped() {
         startButton.setTitle("NEXT", for: .normal)
         
-        func changeColor(color: TrafficLightColors) {
+        switch brightLight {
+        case .red:
+            redLight.alpha = 1
+            greenLight.alpha = colorTransperancy
+            brightLight = .yellow
             
-            switch brightLight {
-            case .red:
-                redLight.alpha = 1
-                greenLight.alpha = colorTransperancy
-                brightLight = .yellow
-                
-            case .yellow:
-                redLight.alpha = colorTransperancy
-                yellowLight.alpha = 1
-                brightLight = .green
-            case .green:
-                yellowLight.alpha = colorTransperancy
-                greenLight.alpha = 1
-                brightLight = .red
-            }
+        case .yellow:
+            redLight.alpha = colorTransperancy
+            yellowLight.alpha = 1
+            brightLight = .green
+        case .green:
+            yellowLight.alpha = colorTransperancy
+            greenLight.alpha = 1
+            brightLight = .red
         }
-        changeColor(color: brightLight)
     }
 }
 
