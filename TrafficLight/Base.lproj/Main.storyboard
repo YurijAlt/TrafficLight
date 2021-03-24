@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="CmY-8b-BbY">
+                            <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="CmY-8b-BbY">
                                 <rect key="frame" x="127" y="98" width="160" height="540"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kfl-la-L9r">
@@ -58,7 +58,7 @@
                             <constraint firstItem="l89-aq-pqp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="57" id="HwB-zE-L9C"/>
                             <constraint firstItem="CmY-8b-BbY" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="NRg-rf-f32"/>
                             <constraint firstItem="l89-aq-pqp" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="hXs-e7-i0O"/>
-                            <constraint firstItem="CmY-8b-BbY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="127" id="lM9-w6-I1F"/>
+                            <constraint firstItem="CmY-8b-BbY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="127" id="lM9-w6-I1F"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="l89-aq-pqp" secondAttribute="bottom" constant="27" id="qMH-YS-uCt"/>
                             <constraint firstItem="l89-aq-pqp" firstAttribute="top" secondItem="CmY-8b-BbY" secondAttribute="bottom" constant="137" id="tZV-Hz-m9c"/>
                         </constraints>
