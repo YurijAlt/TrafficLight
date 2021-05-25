@@ -7,13 +7,13 @@
 
 import UIKit
 
+enum TrafficLightColors {
+    case red
+    case yellow
+    case green
+}
+
 class ViewController: UIViewController {
-    
-    enum TrafficLightColors {
-        case red
-        case yellow
-        case green
-    }
     
     //MARK: IB Outlets
     @IBOutlet weak var redLight: UIView!
@@ -27,39 +27,43 @@ class ViewController: UIViewController {
     
     //MARK: Private Properties
     private var brightLight = TrafficLightColors.red
-    
+    private let lightIsOn: CGFloat = 1
+    private let lightIsOff: CGFloat = 0.3
     
     //MARK: Life Cicles Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        redLight.layer.cornerRadius = redLight.bounds.height / 2
-        redLight.alpha = colorTransperancy
-        yellowLight.layer.cornerRadius = redLight.bounds.height / 2
-        yellowLight.alpha = colorTransperancy
-        greenLight.layer.cornerRadius = redLight.bounds.height / 2
-        greenLight.alpha = colorTransperancy
+        redLight.alpha = lightIsOff
+        yellowLight.alpha = lightIsOff
+        greenLight.alpha = lightIsOff
         
         startButton.layer.cornerRadius = 10
     }
     
+    override func viewWillLayoutSubviews() {
+        redLight.layer.cornerRadius = redLight.frame.width / 2
+        yellowLight.layer.cornerRadius = redLight.frame.width / 2
+        greenLight.layer.cornerRadius = redLight.frame.width / 2
+    }
+    
     //MARK: IB Actions
     @IBAction func startButtonTapped() {
-        startButton.setTitle("NEXT", for: .normal)
-        
+        if startButton.currentTitle == "START" {
+            startButton.setTitle("NEXT", for: .normal)
+        }
         switch brightLight {
         case .red:
-            redLight.alpha = 1
-            greenLight.alpha = colorTransperancy
+            redLight.alpha = lightIsOn
+            greenLight.alpha = lightIsOff
             brightLight = .yellow
             
         case .yellow:
-            redLight.alpha = colorTransperancy
-            yellowLight.alpha = 1
+            redLight.alpha = lightIsOff
+            yellowLight.alpha = lightIsOn
             brightLight = .green
         case .green:
-            yellowLight.alpha = colorTransperancy
-            greenLight.alpha = 1
+            yellowLight.alpha = lightIsOff
+            greenLight.alpha = lightIsOn
             brightLight = .red
         }
     }
